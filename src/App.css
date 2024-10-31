@@ -1,0 +1,11 @@
+#root {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+.infoIa {
+  background: linear-gradient(66deg, #0078FF 35.19%, #00DBD1 73.16%, #8CFF00 108.91%);
+}

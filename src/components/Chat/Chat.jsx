@@ -1,15 +1,15 @@
 import './Chat.css'
+import ChatMap from './ChatMap'
 
-export default function Chat({view}) {
-    console.log(view)
+export default function Chat(props) {
+    console.log(props.mes)
     return(
-        <main className={`${view} chat fixed bg-[#d4eeff] rounded-lg h-[50%] w-[22%] ml-1 mt-4 rounded-t-md`}>
+        <main className={`${props.view} chat fixed bg-[#d4eeff] rounded-lg h-[50%] w-[22%] ml-1 mt-4 rounded-t-md`}>
             <header className='title bg-[#FF6600] text-white rounded-t-md'>
                 <h2 className='text-center font-semibold border-b-2 border-solid border-zinc-200 pt-2'>Asistente Virtual!</h2>
             </header>
             <div className='chatBox px-1 overflow-auto text-clip'>
-                <div className='botMsg'><h1>Hola en que Puedo ayudar</h1></div>
-                <div className='userMsg'><h1>Soy nuevo</h1></div>
+                <ChatMap mes={props.mes}/>
             </div>
             <footer>
                 <div className='chatMsg rounded-md'>

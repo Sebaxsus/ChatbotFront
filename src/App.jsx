@@ -9,6 +9,14 @@ function App() {
   const [count, setCount] = useState(0)
   const [visible, setVisible] = useState(false)
   const [View, setView] = useState('hidden')
+  const mensaje = [{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'}
+    ,{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
+    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
+    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
+    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
+    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
+    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},]
+  const [mes, setMes] = useState(mensaje)
 
   const handleClick = () => {
     setVisible(!visible)
@@ -49,12 +57,12 @@ function App() {
             <img src="https://www.openenglish.com/wp-content/uploads/2024/10/768-1440-store-app_1x.png" alt="Rating Google Play" />
           </div>
           <form>
-            <Chat view={View} />
+            <Chat view={View} mes={mes} />
           </form>
         </section>
         <footer>
           <div className='flex justify-end'>
-            <button className='bg-[#ceebff] rounded-full [&:hover]:bg-[#6fc6ff] fixed mr-280' onClick={handleClick}><img src='audioheadset.svg' alt='Logo Atencion al Cliente' className='w-16'/></button>
+            <button className='bg-[#ceebff] rounded-full [&:hover]:bg-[#6fc6ff] fixed -mr-1' onClick={handleClick}><img src='audioheadset.svg' alt='Logo Atencion al Cliente' className='w-16'/></button>
           </div>
         </footer>
       </main>

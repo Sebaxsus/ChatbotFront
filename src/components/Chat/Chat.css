@@ -23,6 +23,8 @@
 .botMsg {
     display: flex;
     justify-content: flex-start;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .userMsg {

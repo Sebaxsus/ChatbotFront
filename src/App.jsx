@@ -1,22 +1,40 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Nav from './components/Nav/Nav'
 import Chat from './components/Chat/Chat'
+import axios from 'axios'
+
+const datos = async (input) =>  {
+  try {
+    const res = await axios.post('http://127.0.0.1:8000/Api/Bot/', {set: input})
+    const {bot_response } = res.data;
+    return bot_response
+  } catch (error) {
+    console.warn(error)
+  }
+}
+
+
 
 function App() {
+
   const [count, setCount] = useState(0)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const [View, setView] = useState('hidden')
-  const mensaje = [{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'}
-    ,{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
-    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
-    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
-    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
-    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},
-    {agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},{agente: 'bot', msg: 'Mensaje'}, {agente: 'user', msg: 'Res'},]
-  const [mes, setMes] = useState(mensaje)
+  const [res, setRes] = useState([])
+  const [mes, setMes] = useState('')
+  useEffect(() => {datos()}, [])
+
+  const getDatos = async () => {
+    const resApi = await datos(document.getElementById('input').value)
+    const nuevoMesUser = {agente: 'user', msg: document.getElementById('input').value}
+    const nuevoMesBot = {agente: 'bot', msg: resApi}
+    setRes((e) => [...e, nuevoMesUser])
+    setRes((e) => [...e, nuevoMesBot])
+    document.getElementById('input').value = '';
+  }
 
   const handleClick = () => {
     setVisible(!visible)
@@ -56,13 +74,13 @@ function App() {
             </ul>
             <img src="https://www.openenglish.com/wp-content/uploads/2024/10/768-1440-store-app_1x.png" alt="Rating Google Play" />
           </div>
-          <form>
-            <Chat view={View} mes={mes} />
-          </form>
+          <div>
+            <Chat view={View} res={res} mes={setMes} in={getDatos}/>
+          </div>
         </section>
         <footer>
           <div className='flex justify-end'>
-            <button className='bg-[#ceebff] rounded-full [&:hover]:bg-[#6fc6ff] fixed -mr-1' onClick={handleClick}><img src='audioheadset.svg' alt='Logo Atencion al Cliente' className='w-16'/></button>
+            <button className='bg-[#ceebff] rounded-full [&:hover]:bg-[#6fc6ff] fixed mr-10' onClick={handleClick}><img src='audioheadset.svg' alt='Logo Atencion al Cliente' className='w-16'/></button>
           </div>
         </footer>
       </main>

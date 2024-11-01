@@ -54,7 +54,7 @@ function App() {
         </section>
         <footer>
           <div className='flex justify-end'>
-            <button className='bg-[#ceebff] rounded-full [&:hover]:bg-[#6fc6ff] fixed' onClick={handleClick}><img src='audioheadset.svg' alt='Logo Atencion al Cliente' className='w-16'/></button>
+            <button className='bg-[#ceebff] rounded-full [&:hover]:bg-[#6fc6ff] fixed mr-280' onClick={handleClick}><img src='audioheadset.svg' alt='Logo Atencion al Cliente' className='w-16'/></button>
           </div>
         </footer>
       </main>

@@ -1,0 +1,40 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+}
+
+.visible {
+ visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+.chatBox {
+    display: inherit;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.botMsg {
+    text-align: start;
+}
+
+.userMsg {
+    text-align: end;
+}
+
+.chatMsg {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(156, 255, 255);
+    border: 1px solid black;
+}
+
+.campoTexto {
+    background-color: rgb(156, 255, 255);
+    flex-grow: 1;
+    border-right: 1px solid black;
+}

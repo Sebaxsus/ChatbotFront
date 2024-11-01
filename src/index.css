@@ -33,5 +33,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  scrollbar-gutter: auto;
+  overflow: hidden;
+  scrollbar-gutter: stable;
 }

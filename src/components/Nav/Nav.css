@@ -12,14 +12,13 @@ header {
 }
 
 .top-nav {
-    display: grid;
-    grid-template-areas: "right right left";
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: #ebf7ff;
 }
 
-.top-nav-list-left {
-    grid-area: right;
-}
+
 
 .top-nav-list-left ul li {
     min-width: 130px;
@@ -40,9 +39,7 @@ header {
     border-left: 2px solid #cbd5e1;
 }
 
-.top-nav-list-right {
-    grid-area: left;
-}
+
 
 .top-nav-list-right ul li:hover {
     background-color: #eee;
@@ -59,12 +56,8 @@ header {
 }
 
 .mid-nav {
-    display: grid;
-    grid-template-areas: "left left right";
-}
-
-.mid-nav-list-left {
-    grid-area: left;
+    display: flex;
+    justify-content: space-around;
 }
 
 .mid-nav-list-left ul {
@@ -76,10 +69,6 @@ header {
 
 .mid-nav-list-left ul li a {
     place-self: center;
-}
-
-.mid-nav-list-right {
-    grid-area: right;
 }
 
 ul {

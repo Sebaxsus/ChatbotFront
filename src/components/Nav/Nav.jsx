@@ -21,7 +21,7 @@ export default function Nav() {
                     </nav>
                 </div>
                 <div className='mid-nav'>
-                    <nav className='mid-nav-list-left'>
+                    <nav className='mid-nav-list-left [&>ul>li>a:hover]:text-[#ff6600] [&>ul>li>a]:font-semibold'>
                         <ul>
                             <li><a href=""><img src="https://www.openenglish.com/wp-content/themes/oe-wpcontent/wpbootstrap/img/oe-latam-logo.png" alt="Logo de Open English" className='Logo'/></a></li>
                             <li><a href="">El Curso</a></li>
